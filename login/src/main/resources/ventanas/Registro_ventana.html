@@ -6,6 +6,19 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+  <vaadin-vertical-layout>
+   <vaadin-label plain-text _id="lUsuario">
+     Datos de usuario 
+   </vaadin-label>
+   <vaadin-text-field caption="Apodo" _id="tApodo"></vaadin-text-field>
+   <vaadin-text-field caption="Email" _id="tEmail"></vaadin-text-field>
+   <vaadin-horizontal-layout _id="hPass">
+    <vaadin-password-field caption="Contraseña" _id="tPass"></vaadin-password-field>
+    <vaadin-password-field caption="Recordar contraseña" _id="tRepPass"></vaadin-password-field>
+   </vaadin-horizontal-layout>
+   <vaadin-button style-name="primary" plain-text _id="botonRegistrarse">
+     Registrarse 
+   </vaadin-button>
+  </vaadin-vertical-layout>
  </body>
 </html>
