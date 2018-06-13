@@ -23,12 +23,131 @@
       Cerrar Sesión 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-button style-name="borderless-colored" plain-text _id="bListar">
-     Listar usuarios 
-   </vaadin-button>
-   <vaadin-button style-name="borderless-colored" plain-text _id="bCrear">
-     Crear usuarios 
-   </vaadin-button>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-button style-name="borderless-colored" plain-text _id="bListar">
+       Listar usuarios 
+     </vaadin-button>
+     <vaadin-button style-name="borderless-colored" plain-text _id="bCrear">
+       Crear usuarios 
+     </vaadin-button>
+    </vaadin-vertical-layout>
+    <vaadin-grid visible="false" :right>
+     <table>
+      <colgroup>
+       <col column-id="username" sortable="false">
+       <col column-id="email" sortable="false">
+       <col column-id="activo" sortable="false">
+       <col column-id="botones" sortable="false">
+      </colgroup>
+      <thead>
+       <tr default>
+        <th plain-text column-ids="username">Username</th>
+        <th plain-text column-ids="email">Email</th>
+        <th plain-text column-ids="activo">Activo</th>
+        <th plain-text column-ids="botones"></th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr item="usuario1">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>&lt;button&gt;Editar&lt;/button&gt;&lt;button&gt;Borrar&lt;/button&gt;</td>
+       </tr>
+       <tr item="usuario2">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>&lt;button&gt;Editar&lt;/button&gt;&lt;button&gt;Borrar&lt;/button&gt;</td>
+       </tr>
+       <tr item="usuario3">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>&lt;button&gt;Editar&lt;/button&gt;&lt;button&gt;Borrar&lt;/button&gt;</td>
+       </tr>
+      </tbody>
+     </table>
+    </vaadin-grid>
+    <vaadin-vertical-layout visible="false" size-auto :right>
+     <vaadin-label plain-text _id="lUsuario">
+       Crear usuario 
+     </vaadin-label>
+     <vaadin-text-field caption="Username" _id="tUsername"></vaadin-text-field>
+     <vaadin-label visible="false" style-name="small" plain-text _id="luser"></vaadin-label>
+     <vaadin-text-field caption="Email" _id="tEmail"></vaadin-text-field>
+     <vaadin-label visible="false" style-name="small" plain-text _id="lemail"></vaadin-label>
+     <vaadin-horizontal-layout _id="hPass">
+      <vaadin-password-field caption="Contraseña" _id="tPass"></vaadin-password-field>
+      <vaadin-password-field caption="Repetir contraseña" _id="tRepPass"></vaadin-password-field>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="small" plain-text _id="lpass"></vaadin-label>
+     <vaadin-horizontal-layout width-full>
+      <vaadin-check-box caption="Activo" :middle :center></vaadin-check-box>
+      <vaadin-radio-button-group data-item-type="java.lang.String" :right>
+       <option item="Option1">admin</option>
+       <option item="Option2">usuario</option>
+      </vaadin-radio-button-group>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout width-full :center>
+      <vaadin-button style-name="primary" plain-text _id="botonCrear" :center>
+        Crear usuario 
+      </vaadin-button>
+      <vaadin-button style-name="danger" plain-text _id="botonCancelar" :center>
+        Cancelar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="success" plain-text _id="registroOk">
+       Se ha registrado correctamente 
+     </vaadin-label>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout visible="false" size-auto :right>
+     <vaadin-label plain-text _id="lUsuario1">
+       Modificar usuario 
+     </vaadin-label>
+     <vaadin-text-field caption="Username" enabled="false" _id="tUsername1"></vaadin-text-field>
+     <vaadin-label visible="false" style-name="small" plain-text _id="luser1"></vaadin-label>
+     <vaadin-text-field caption="Email" _id="tEmail1"></vaadin-text-field>
+     <vaadin-label visible="false" style-name="small" plain-text _id="lemail1"></vaadin-label>
+     <vaadin-horizontal-layout _id="hPass1">
+      <vaadin-password-field caption="Contraseña" _id="tPass1"></vaadin-password-field>
+      <vaadin-password-field caption="Repetir contraseña" _id="tRepPass1"></vaadin-password-field>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="small" plain-text _id="lpass1"></vaadin-label>
+     <vaadin-horizontal-layout width-full>
+      <vaadin-check-box caption="Activo" :middle :center></vaadin-check-box>
+      <vaadin-radio-button-group data-item-type="java.lang.String" :right>
+       <option item="Option1">admin</option>
+       <option item="Option2">usuario</option>
+      </vaadin-radio-button-group>
+     </vaadin-horizontal-layout>
+     <vaadin-horizontal-layout width-full :center>
+      <vaadin-button style-name="primary" plain-text _id="botonGuardar" :center>
+        Guardar 
+      </vaadin-button>
+      <vaadin-button style-name="danger" plain-text _id="botonCancelar1" :center>
+        Cancelar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="success" plain-text _id="registroOk1">
+       Se ha guardado correctamente 
+     </vaadin-label>
+    </vaadin-vertical-layout>
+    <vaadin-vertical-layout visible="false" width-auto height-full :right>
+     <vaadin-label plain-text :center>
+       ¿Estás seguro que deseas eliminar este usuario? 
+     </vaadin-label>
+     <vaadin-horizontal-layout width-full margin>
+      <vaadin-button description="Cancelar" style-name="danger" plain-text _id="cancelar">
+        Cancelar 
+      </vaadin-button>
+      <vaadin-button description="Aceptar" style-name="friendly" plain-text _id="aceptar" :right>
+        Aceptar 
+      </vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-vertical-layout>
+   </vaadin-horizontal-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
