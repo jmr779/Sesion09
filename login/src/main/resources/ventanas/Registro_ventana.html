@@ -6,30 +6,32 @@
   <meta name="vaadin-version" content="8.0.5">
  </head>
  <body>
-  <vaadin-vertical-layout size-auto>
-   <vaadin-label plain-text _id="lUsuario">
-     Datos de usuario 
-   </vaadin-label>
-   <vaadin-text-field caption="Username" _id="tUsername"></vaadin-text-field>
-   <vaadin-label visible="false" style-name="small" plain-text _id="luser"></vaadin-label>
-   <vaadin-text-field caption="Email" _id="tEmail"></vaadin-text-field>
-   <vaadin-label visible="false" style-name="small" plain-text _id="lemail"></vaadin-label>
-   <vaadin-horizontal-layout _id="hPass">
-    <vaadin-password-field caption="Contraseña" _id="tPass"></vaadin-password-field>
-    <vaadin-password-field caption="Repetir contraseña" _id="tRepPass"></vaadin-password-field>
-   </vaadin-horizontal-layout>
-   <vaadin-label visible="false" style-name="small" plain-text _id="lpass"></vaadin-label>
-   <vaadin-horizontal-layout width-full :center>
-    <vaadin-button style-name="primary" plain-text _id="botonRegistrarse" :center>
-      Registrarse 
-    </vaadin-button>
-    <vaadin-button style-name="danger" plain-text _id="botonCancelar" :center>
-      Cancelar 
-    </vaadin-button>
-   </vaadin-horizontal-layout>
-   <vaadin-label visible="false" style-name="success" plain-text _id="registroOk">
-     Se ha registrado correctamente. Puede hacer login 
-   </vaadin-label>
+  <vaadin-vertical-layout size-full>
+   <vaadin-vertical-layout size-auto>
+    <vaadin-label plain-text _id="lUsuario">
+      Datos de usuario 
+    </vaadin-label>
+    <vaadin-text-field caption="Username" _id="tUsername"></vaadin-text-field>
+    <vaadin-label visible="false" style-name="small" plain-text _id="luser"></vaadin-label>
+    <vaadin-text-field caption="Email" _id="tEmail"></vaadin-text-field>
+    <vaadin-label visible="false" style-name="small" plain-text _id="lemail"></vaadin-label>
+    <vaadin-horizontal-layout _id="hPass">
+     <vaadin-password-field caption="Contraseña" _id="tPass"></vaadin-password-field>
+     <vaadin-password-field caption="Repetir contraseña" _id="tRepPass"></vaadin-password-field>
+    </vaadin-horizontal-layout>
+    <vaadin-label visible="false" style-name="small" plain-text _id="lpass"></vaadin-label>
+    <vaadin-horizontal-layout width-full :center>
+     <vaadin-button style-name="primary" plain-text _id="botonRegistrarse" :center>
+       Registrarse 
+     </vaadin-button>
+     <vaadin-button style-name="danger" plain-text _id="botonCancelar" :center>
+       Cancelar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-label visible="false" style-name="success" plain-text _id="registroOk">
+      Se ha registrado correctamente. Puede hacer login 
+    </vaadin-label>
+   </vaadin-vertical-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
