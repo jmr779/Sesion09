@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.util.Date;
+import java.util.List;
 
 import org.orm.PersistentException;
 
@@ -38,14 +39,14 @@ public class BD_Principal implements iUsuario {
 	}
 
 	@Override
-	public boolean login(String user, String pass) {
-		boolean as = false;
+	public List login() {
+		List user = null;
 		try {
-			as = registrado.login(user, pass);
+			user = registrado.login();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return as;
+		return user;
 	}
 }

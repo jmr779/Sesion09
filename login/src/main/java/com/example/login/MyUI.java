@@ -16,6 +16,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 import ventanas.Ingreso_aplicacion;
+import ventanas.Pag_Registrado;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -32,6 +33,7 @@ public class MyUI extends UI {
     	navigator = new Navigator(this, this);
     	//try {
 			navigator.addView("", new Ingreso_aplicacion());
+			navigator.addView("Registrado", new Pag_Registrado());
 		//} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 		//	e.printStackTrace();

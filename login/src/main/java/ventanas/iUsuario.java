@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.util.Date;
+import java.util.List;
 
 public interface iUsuario {
 
@@ -16,5 +17,5 @@ public interface iUsuario {
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo);
 
-	public boolean login(String user, String pass);
+	public List login();
 }
