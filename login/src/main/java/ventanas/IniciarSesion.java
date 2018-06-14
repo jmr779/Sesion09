@@ -2,6 +2,7 @@ package ventanas;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Notification;
 
 public class IniciarSesion extends IniciarSesion_ventana{
 	public Ingreso_aplicacion _unnamed_Ingreso_aplicacion_;
@@ -21,6 +22,10 @@ public class IniciarSesion extends IniciarSesion_ventana{
 	public void login() {
 		String user = usuario___.getValue();
 		String pass = password___.getValue();
-		us.login(user, pass);
+		if(us.login(user, pass)){
+			Notification.show("Eurekaa!");
+		}else {
+			Notification.show("Fail");
+		}
 	}
 }
