@@ -2,9 +2,11 @@ package ventanas;
 
 import java.util.Date;
 
+import org.orm.PersistentException;
+
 public class BD_Principal implements iUsuario {
 	public BD_Administrador _bD_Administrador;
-	public BD_Registrado _bD_Registrado;
+	public BD_Registrado registrado = new BD_Registrado();
 
 	public void eliminarUsuario(int aID) {
 		throw new UnsupportedOperationException();
@@ -19,7 +21,12 @@ public class BD_Principal implements iUsuario {
 	}
 
 	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso) {
-		throw new UnsupportedOperationException();
+		try {
+			registrado.registrarse(aEmail, aNombre, aFechaCreacion, aFechaUltimoAcceso, aPass);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void modificarDatos(String aEmail, String aPass) {
