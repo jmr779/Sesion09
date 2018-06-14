@@ -36,4 +36,16 @@ public class BD_Principal implements iUsuario {
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
 		throw new UnsupportedOperationException();
 	}
+
+	@Override
+	public boolean login(String user, String pass) {
+		boolean as = false;
+		try {
+			as = registrado.login(user, pass);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return as;
+	}
 }

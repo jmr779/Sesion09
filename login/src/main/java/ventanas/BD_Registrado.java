@@ -32,4 +32,24 @@ public class BD_Registrado {
 		t.rollback();
 		}
 	}
+	
+	public boolean login(String user, String pass) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			/*bbdd.Registrado r = bbdd.RegistradoDAO.loa;
+			r.setNombre(aNombre);
+			r.setEmail(aEmail);
+			r.setActivo(true);
+			r.setPass(aPass);
+			r.setFechaCreacion(aFechaCreacion);
+			r.setFechaUltimoAcceso(aFechaUltimoAcceso);
+			bbdd.RegistradoDAO.save(r);*/
+			t.commit();
+		} catch (Exception e) {
+		t.rollback();
+		}
+		return false;
+	}
+
+	
 }
