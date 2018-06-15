@@ -10,6 +10,9 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.NativeButton;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Window;
 
 import bbdd.*;
 
@@ -20,12 +23,14 @@ public class Pag_Administrador  extends Pag_Administrador_ventana implements Vie
 	
 	public Pag_Administrador() throws PersistentException {
 		
+		Registro reg = new Registro();
 		Grid <bbdd.Registrado> grid = new Grid<>();
 		List<bbdd.Registrado> lista = regis.cargarUsuarios();
 		grid.setItems(lista);
 		
 		grid.addColumn(bbdd.Registrado::getNombre);
-		/////////grid.addColumn(new NativeButton("Boton"));
+		//grid.addColumn(new Button("Modificar"));
+		grid.addColumn(bbdd.Registrado::boton);
 		
 		bListar.addClickListener(new ClickListener() {
 			
@@ -33,6 +38,23 @@ public class Pag_Administrador  extends Pag_Administrador_ventana implements Vie
 				
 				layoutGrid.addComponent(grid);
 				
+			}
+		});
+		
+		bCrear.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				Window popup = new Window();
+				VerticalLayout subContent = new VerticalLayout();
+				popup.setContent(subContent);
+				subContent.addComponent(reg);
+				popup.center();
+				// Closable elimina el boton de cerrar del popup
+				// popup.setClosable(false);
+				popup.setModal(true);
+				popup.setResizable(false);
+				UI.getCurrent().addWindow(popup);
 			}
 		});
 	}

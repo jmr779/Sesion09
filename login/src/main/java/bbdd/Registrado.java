@@ -15,6 +15,8 @@ package bbdd;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.vaadin.ui.Button;
 @Entity
 @org.hibernate.annotations.Proxy(lazy=false)
 @Table(name="Registrado")
@@ -123,4 +125,9 @@ public class Registrado implements Serializable {
 		return String.valueOf(getID());
 	}
 	
+	public Button boton() {
+		Button boton = new Button("Modificar");
+		return boton;
+		
+	}
 }
