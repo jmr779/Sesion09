@@ -1,5 +1,5 @@
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package ormsamples;
@@ -9,9 +9,6 @@ public class DeleteProyectoHMISData {
 	public void deleteTestData() throws PersistentException {
 		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
 		try {
-			bbdd.Administrador bBDDAdministrador = bbdd.AdministradorDAO.loadAdministradorByQuery(null, null);
-			// Delete the persistent object
-			bbdd.AdministradorDAO.delete(bBDDAdministrador);
 			bbdd.Registrado bBDDRegistrado = bbdd.RegistradoDAO.loadRegistradoByQuery(null, null);
 			// Delete the persistent object
 			bbdd.RegistradoDAO.delete(bBDDRegistrado);

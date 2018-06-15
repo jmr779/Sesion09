@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package bbdd;
@@ -26,6 +26,7 @@ public class RegistradoCriteria extends AbstractORMCriteria {
 	public final BooleanExpression activo;
 	public final DateExpression fechaCreacion;
 	public final DateExpression fechaUltimoAcceso;
+	public final StringExpression rol;
 	
 	public RegistradoCriteria(Criteria criteria) {
 		super(criteria);
@@ -36,6 +37,7 @@ public class RegistradoCriteria extends AbstractORMCriteria {
 		activo = new BooleanExpression("activo", this);
 		fechaCreacion = new DateExpression("fechaCreacion", this);
 		fechaUltimoAcceso = new DateExpression("fechaUltimoAcceso", this);
+		rol = new StringExpression("rol", this);
 	}
 	
 	public RegistradoCriteria(PersistentSession session) {

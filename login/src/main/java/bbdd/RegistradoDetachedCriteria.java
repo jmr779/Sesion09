@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package bbdd;
@@ -26,6 +26,7 @@ public class RegistradoDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final BooleanExpression activo;
 	public final DateExpression fechaCreacion;
 	public final DateExpression fechaUltimoAcceso;
+	public final StringExpression rol;
 	
 	public RegistradoDetachedCriteria() {
 		super(bbdd.Registrado.class, bbdd.RegistradoCriteria.class);
@@ -36,6 +37,7 @@ public class RegistradoDetachedCriteria extends AbstractORMDetachedCriteria {
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		fechaUltimoAcceso = new DateExpression("fechaUltimoAcceso", this.getDetachedCriteria());
+		rol = new StringExpression("rol", this.getDetachedCriteria());
 	}
 	
 	public RegistradoDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -47,6 +49,7 @@ public class RegistradoDetachedCriteria extends AbstractORMDetachedCriteria {
 		activo = new BooleanExpression("activo", this.getDetachedCriteria());
 		fechaCreacion = new DateExpression("fechaCreacion", this.getDetachedCriteria());
 		fechaUltimoAcceso = new DateExpression("fechaUltimoAcceso", this.getDetachedCriteria());
+		rol = new StringExpression("rol", this.getDetachedCriteria());
 	}
 	
 	public Registrado uniqueRegistrado(PersistentSession session) {

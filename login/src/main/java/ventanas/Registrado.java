@@ -1,6 +1,4 @@
-package ventanas;
-
-import java.util.Date;
+package BBDD;
 
 public class Registrado {
 	private int _iD;
@@ -10,5 +8,6 @@ public class Registrado {
 	private boolean _activo;
 	private Date _fechaCreacion;
 	private Date _fechaUltimoAcceso;
+	private String _rol;
 	public BD_Registrado _contiene_regis;
 }

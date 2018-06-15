@@ -35,6 +35,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/Alfonso/Desktop/ProyectoHMISCODIGO/lib/orm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/usuario/Downloads/orm.jar"/>
+	<classpathentry kind="lib" path="C:/Users/usuario/Desktop/codigohmis/lib/orm.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

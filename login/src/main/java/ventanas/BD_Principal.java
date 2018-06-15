@@ -1,13 +1,10 @@
-package ventanas;
+package DiagramaClases;
 
-import java.util.Date;
-import java.util.List;
-
-import org.orm.PersistentException;
+import BBDD.BD_Registrado;
 
 public class BD_Principal implements iUsuario {
-	public BD_Administrador administrador = new BD_Administrador();
-	public BD_Registrado registrado = new BD_Registrado();
+	public BD_Registrado _bD_Registrado;
+
 	public void eliminarUsuario(int aID) {
 		throw new UnsupportedOperationException();
 	}
@@ -21,12 +18,7 @@ public class BD_Principal implements iUsuario {
 	}
 
 	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso) {
-		try {
-			registrado.registrarse(aEmail, aNombre, aFechaCreacion, aFechaUltimoAcceso, aPass);
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		throw new UnsupportedOperationException();
 	}
 
 	public void modificarDatos(String aEmail, String aPass) {
@@ -35,27 +27,5 @@ public class BD_Principal implements iUsuario {
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
 		throw new UnsupportedOperationException();
-	}
-
-	@Override
-	public List cargarUsuarios() {
-		List user = null;
-		try {
-			user = registrado.cargarUsuarios();
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return user;
-	}
-	public List cargarAdmins() {
-		List admin = null;
-		try {
-			admin = administrador.cargarAdmins();
-		} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return admin;
 	}
 }

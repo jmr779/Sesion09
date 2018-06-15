@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package bbdd;
@@ -36,7 +36,6 @@ public class ProyectoHMISPersistentManager extends PersistentManager {
 	@Override
 	public Configuration createConfiguration() {
 		Configuration configuration = new Configuration();
-		configuration.addAnnotatedClass(bbdd.Administrador.class);
 		configuration.addAnnotatedClass(bbdd.Registrado.class);
 		configuration.buildMappings();
 		return configuration;

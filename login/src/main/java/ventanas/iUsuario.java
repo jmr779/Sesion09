@@ -1,7 +1,4 @@
-package ventanas;
-
-import java.util.Date;
-import java.util.List;
+package DiagramaClases;
 
 public interface iUsuario {
 
@@ -16,8 +13,4 @@ public interface iUsuario {
 	public void modificarDatos(String aEmail, String aPass);
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo);
-
-	public List cargarUsuarios();
-	
-	public List cargarAdmins();
 }

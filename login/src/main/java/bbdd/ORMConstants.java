@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package bbdd;

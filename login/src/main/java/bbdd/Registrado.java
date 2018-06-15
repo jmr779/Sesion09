@@ -8,7 +8,7 @@
  */
 
 /**
- * Licensee: Alfonso(University of Almeria)
+ * Licensee: usuario(University of Almeria)
  * License Type: Academic
  */
 package bbdd;
@@ -47,6 +47,9 @@ public class Registrado implements Serializable {
 	@Column(name="FechaUltimoAcceso", nullable=true)	
 	@Temporal(TemporalType.DATE)	
 	private java.util.Date fechaUltimoAcceso;
+	
+	@Column(name="Rol", nullable=true, length=255)	
+	private String rol;
 	
 	private void setID(int value) {
 		this.ID = value;
@@ -106,6 +109,14 @@ public class Registrado implements Serializable {
 	
 	public java.util.Date getFechaUltimoAcceso() {
 		return fechaUltimoAcceso;
+	}
+	
+	public void setRol(String value) {
+		this.rol = value;
+	}
+	
+	public String getRol() {
+		return rol;
 	}
 	
 	public String toString() {
