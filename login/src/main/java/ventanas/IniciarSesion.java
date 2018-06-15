@@ -11,8 +11,9 @@ import com.vaadin.ui.UI;
 public class IniciarSesion extends IniciarSesion_ventana{
 	public Ingreso_aplicacion _unnamed_Ingreso_aplicacion_;
 	iUsuario us = new BD_Principal();
+	iUsuario use = new BD_Principal();
 	List<bbdd.Registrado> usuarios = us.cargarUsuarios();
-	List<bbdd.Administrador> admins = us.cargarAdmins();
+	List<bbdd.Administrador> admins = use.cargarAdmins();
 	public IniciarSesion() {
 		login.addClickListener(new Button.ClickListener() {
 			
@@ -37,10 +38,7 @@ public class IniciarSesion extends IniciarSesion_ventana{
 		}
 		if(loginOk) {
 			UI.getCurrent().getNavigator().navigateTo("Registrado");
-		} 
-		if(!loginOk) {
-			/*errorLogin.setValue("El login no es correcto");
-			errorLogin.setVisible(true);*/
+		} else {
 			for(int i = 0; i<=admins.size()-1; i++) {
 				if(user.equals(admins.get(i).getNombre()) &&
 						pass.equals(admins.get(i).getPass())){
@@ -52,10 +50,9 @@ public class IniciarSesion extends IniciarSesion_ventana{
 		}
 		if(loginOk) {
 			Notification.show("asdasd");
-		} 
-		if(!loginOk) {
+		} else {
 			errorLogin.setValue("El login no es correcto");
-			//errorLogin.setVisible(true);
+			errorLogin.setVisible(true);
 		}
 	}
 }
