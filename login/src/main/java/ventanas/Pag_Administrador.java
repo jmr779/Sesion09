@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.orm.PersistentException;
 
+import com.vaadin.navigator.View;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -12,7 +13,7 @@ import com.vaadin.ui.NativeButton;
 
 import bbdd.*;
 
-public class Pag_Administrador  extends Pag_Administrador_ventana{
+public class Pag_Administrador  extends Pag_Administrador_ventana implements View{
 	public ListarUsuarios _unnamed_ListarUsuarios_;
 	public ModificarDatosUserListado _unnamed_ModificarDatosUserListado_;
 	public BD_Registrado regis = new BD_Registrado();
@@ -20,8 +21,8 @@ public class Pag_Administrador  extends Pag_Administrador_ventana{
 	public Pag_Administrador() throws PersistentException {
 		
 		Grid <bbdd.Registrado> grid = new Grid<>();
-		//List<bbdd.Registrado> lista = regis.cargarUsuarios();
-		//grid.setItems(lista);
+		List<bbdd.Registrado> lista = regis.cargarUsuarios();
+		grid.setItems(lista);
 		
 		grid.addColumn(bbdd.Registrado::getNombre);
 		/////////grid.addColumn(new NativeButton("Boton"));
@@ -30,7 +31,7 @@ public class Pag_Administrador  extends Pag_Administrador_ventana{
 			
 			public void buttonClick(ClickEvent event) {
 				
-				
+				layoutGrid.addComponent(grid);
 				
 			}
 		});

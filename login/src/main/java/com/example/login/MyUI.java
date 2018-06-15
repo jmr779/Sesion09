@@ -16,6 +16,7 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 import ventanas.Ingreso_aplicacion;
+import ventanas.Pag_Administrador;
 import ventanas.Pag_Registrado;
 
 /**
@@ -32,7 +33,13 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
     	navigator = new Navigator(this, this);
     	//try {
-			navigator.addView("", new Ingreso_aplicacion());
+			//navigator.addView("", new Ingreso_aplicacion());
+			try {
+				navigator.addView("", new Pag_Administrador());
+			} catch (PersistentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			navigator.addView("Registrado", new Pag_Registrado());
 		//} catch (PersistentException e) {
 			// TODO Auto-generated catch block
