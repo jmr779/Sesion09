@@ -26,6 +26,7 @@ public class Pag_Administrador_ventana extends VerticalLayout {
 	protected HorizontalLayout layoutGrid;
 	protected Button bListar;
 	protected Button bCrear;
+	protected VerticalLayout layoutCrearUsuario;
 	protected Label lUsuario;
 	protected TextField tUsername;
 	protected Label luser;

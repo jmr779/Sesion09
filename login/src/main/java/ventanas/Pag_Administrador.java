@@ -23,7 +23,6 @@ public class Pag_Administrador  extends Pag_Administrador_ventana implements Vie
 	
 	public Pag_Administrador() throws PersistentException {
 		
-		Registro reg = new Registro();
 		Grid <bbdd.Registrado> grid = new Grid<>();
 		List<bbdd.Registrado> lista = regis.cargarUsuarios();
 		grid.setItems(lista);
@@ -48,7 +47,8 @@ public class Pag_Administrador  extends Pag_Administrador_ventana implements Vie
 				Window popup = new Window();
 				VerticalLayout subContent = new VerticalLayout();
 				popup.setContent(subContent);
-				subContent.addComponent(reg);
+				subContent.addComponent(layoutCrearUsuario);
+				layoutCrearUsuario.setVisible(true);
 				popup.center();
 				// Closable elimina el boton de cerrar del popup
 				// popup.setClosable(false);
