@@ -3,6 +3,8 @@ package ventanas;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.orm.PersistentException;
+
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
@@ -16,13 +18,18 @@ public class Registro extends Registro_ventana{
 		botonRegistrarse.addClickListener(new ClickListener() {
 			
 			public void buttonClick(ClickEvent event) {
-				registrarse();
+				try {
+					registrarse();
+				} catch (PersistentException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				
 			}
 		});
 
 	}
-	public void registrarse() {
+	public void registrarse() throws PersistentException {
 		String email = tEmail.getValue();
 		String pass = tPass.getValue();
 		String nombre = tUsername.getValue();

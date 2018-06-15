@@ -2,7 +2,12 @@ package ventanas;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
+
 import bbdd.Registrado;
 
 public class BD_Registrado {
@@ -31,5 +36,16 @@ public class BD_Registrado {
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
 		throw new UnsupportedOperationException();
+	}
+	
+	public List cargarUsuarios() throws PersistentException {
+		List usu = null;
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			usu = bbdd.RegistradoDAO.queryRegistrado(null, null);
+		} catch (PersistentException e) {
+			t.rollback();
+		}
+		return usu;
 	}
 }
