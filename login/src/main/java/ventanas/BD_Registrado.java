@@ -34,7 +34,7 @@ public class BD_Registrado {
 		}
 	}
 	
-	public List login() throws PersistentException {
+	public List cargarUsuarios() throws PersistentException {
 		List usu = null;
 		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
 		try {

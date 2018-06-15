@@ -2,7 +2,11 @@ package ventanas;
 
 
 import java.sql.Date;
+import java.util.List;
 import java.util.Vector;
+
+import org.orm.PersistentException;
+import org.orm.PersistentTransaction;
 
 
 public class BD_Administrador {
@@ -23,5 +27,15 @@ public class BD_Administrador {
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
 		throw new UnsupportedOperationException();
+	}
+	public List cargarAdmins() throws PersistentException {
+		List ad = null;
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			ad = bbdd.AdministradorDAO.queryAdministrador(null, null);
+		} catch (PersistentException e) {
+			t.rollback();
+		}
+		return ad;
 	}
 }

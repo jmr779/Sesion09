@@ -17,5 +17,7 @@ public interface iUsuario {
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo);
 
-	public List login();
+	public List cargarUsuarios();
+	
+	public List cargarAdmins();
 }

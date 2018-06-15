@@ -6,9 +6,8 @@ import java.util.List;
 import org.orm.PersistentException;
 
 public class BD_Principal implements iUsuario {
-	public BD_Administrador _bD_Administrador;
+	public BD_Administrador administrador = new BD_Administrador();
 	public BD_Registrado registrado = new BD_Registrado();
-
 	public void eliminarUsuario(int aID) {
 		throw new UnsupportedOperationException();
 	}
@@ -39,14 +38,24 @@ public class BD_Principal implements iUsuario {
 	}
 
 	@Override
-	public List login() {
+	public List cargarUsuarios() {
 		List user = null;
 		try {
-			user = registrado.login();
+			user = registrado.cargarUsuarios();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return user;
+	}
+	public List cargarAdmins() {
+		List admin = null;
+		try {
+			admin = administrador.cargarAdmins();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return admin;
 	}
 }
