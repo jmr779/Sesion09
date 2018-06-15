@@ -55,7 +55,7 @@ public class IniciarSesion extends IniciarSesion_ventana{
 		} 
 		if(!loginOk) {
 			errorLogin.setValue("El login no es correcto");
-			errorLogin.setVisible(true);
+			//errorLogin.setVisible(true);
 		}
 	}
 }
