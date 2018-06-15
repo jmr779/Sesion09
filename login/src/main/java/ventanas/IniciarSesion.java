@@ -13,7 +13,7 @@ public class IniciarSesion extends IniciarSesion_ventana{
 	iUsuario us = new BD_Principal();
 	iUsuario use = new BD_Principal();
 	List<bbdd.Registrado> usuarios = us.cargarUsuarios();
-	List<bbdd.Administrador> admins = use.cargarAdmins();
+	//List<bbdd.Administrador> admins = use.cargarAdmins();
 	public IniciarSesion() {
 		login.addClickListener(new Button.ClickListener() {
 			
