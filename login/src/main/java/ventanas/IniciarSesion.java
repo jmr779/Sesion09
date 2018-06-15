@@ -12,19 +12,19 @@ public class IniciarSesion extends IniciarSesion_ventana{
 	public Ingreso_aplicacion _unnamed_Ingreso_aplicacion_;
 	iUsuario us = new BD_Principal();
 	iUsuario use = new BD_Principal();
-	List<bbdd.Registrado> usuarios = us.cargarUsuarios();
-	List<bbdd.Administrador> admins = use.cargarAdmins();
+	//List<bbdd.Registrado> usuarios = us.cargarUsuarios();
+	//List<bbdd.Administrador> admins = use.cargarAdmins();
 	public IniciarSesion() {
 		login.addClickListener(new Button.ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
 				
-				login();
+				//login();
 			}
 		});
 	}
-	public void login() {
+	/*public void login() {
 		String user = usuario___.getValue();
 		String pass = password___.getValue();
 		boolean loginOk = false;
@@ -54,5 +54,5 @@ public class IniciarSesion extends IniciarSesion_ventana{
 			errorLogin.setValue("El login no es correcto");
 			errorLogin.setVisible(true);
 		}
-	}
+	}*/
 }

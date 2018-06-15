@@ -1,4 +1,6 @@
-package BBDD;
+package ventanas;
+
+import java.util.Date;
 
 public class Registrado {
 	private int _iD;

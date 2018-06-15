@@ -1,9 +1,9 @@
-package BBDD;
+package ventanas;
 
-import DiagramaClases.BD_Principal;
+
+import java.util.Date;
 import java.util.Vector;
-import BBDD.Registrado;
-import DiagramaClases.Usuario;
+import bbdd.Registrado;
 
 public class BD_Registrado {
 	public BD_Principal _bD_Principal;
@@ -21,7 +21,7 @@ public class BD_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void crearUsuario(int aID, String aEmail, pass aString, Date aFechaCreacion, Date aFechaUltimoAcceso) {
+	public void crearUsuario(int aID, String aEmail, String aPass, Date aFechaCreacion, Date aFechaUltimoAcceso) {
 		throw new UnsupportedOperationException();
 	}
 

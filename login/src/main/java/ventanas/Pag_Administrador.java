@@ -20,8 +20,8 @@ public class Pag_Administrador  extends Pag_Administrador_ventana{
 	public Pag_Administrador() throws PersistentException {
 		
 		Grid <bbdd.Registrado> grid = new Grid<>();
-		List<bbdd.Registrado> lista = regis.cargarUsuarios();
-		grid.setItems(lista);
+		//List<bbdd.Registrado> lista = regis.cargarUsuarios();
+		//grid.setItems(lista);
 		
 		grid.addColumn(bbdd.Registrado::getNombre);
 		/////////grid.addColumn(new NativeButton("Boton"));

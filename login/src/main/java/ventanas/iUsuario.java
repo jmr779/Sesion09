@@ -1,6 +1,8 @@
-package DiagramaClases;
+package ventanas;
 
-public interface iUsuario {
+import java.util.Date;
+
+public interface iUsuario{
 
 	public void eliminarUsuario(int aID);
 

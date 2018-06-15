@@ -1,6 +1,6 @@
-package DiagramaClases;
+package ventanas;
 
-import BBDD.BD_Registrado;
+import java.util.Date;
 
 public class BD_Principal implements iUsuario {
 	public BD_Registrado _bD_Registrado;

@@ -10,5 +10,4 @@ public class Administrador {
 	private boolean _activo;
 	private Date _fechaCreacion;
 	private Date _fechaUltimoAcceso;
-	public BD_Administrador _contiene_admin;
 }
