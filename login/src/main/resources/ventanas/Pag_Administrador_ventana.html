@@ -23,7 +23,7 @@
       Cerrar Sesión 
     </vaadin-button>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width-full _id="layoutGrid">
     <vaadin-vertical-layout size-auto>
      <vaadin-button style-name="borderless-colored" plain-text _id="bListar">
        Listar usuarios 
@@ -32,44 +32,6 @@
        Crear usuarios 
      </vaadin-button>
     </vaadin-vertical-layout>
-    <vaadin-grid visible="false" _id="grid" :right>
-     <table>
-      <colgroup>
-       <col column-id="username" sortable="false">
-       <col column-id="email" sortable="false">
-       <col column-id="activo" sortable="false">
-       <col column-id="botones" sortable="false">
-      </colgroup>
-      <thead>
-       <tr default>
-        <th plain-text column-ids="username">Username</th>
-        <th plain-text column-ids="email">Email</th>
-        <th plain-text column-ids="activo">Activo</th>
-        <th plain-text column-ids="botones"></th>
-       </tr>
-      </thead>
-      <tbody>
-       <tr item="usuario1">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>&amp;lt;button&amp;gt;Editar&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;Borrar&amp;lt;/button&amp;gt;</td>
-       </tr>
-       <tr item="usuario2">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>&amp;lt;button&amp;gt;Editar&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;Borrar&amp;lt;/button&amp;gt;</td>
-       </tr>
-       <tr item="usuario3">
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>&amp;lt;button&amp;gt;Editar&amp;lt;/button&amp;gt;&amp;lt;button&amp;gt;Borrar&amp;lt;/button&amp;gt;</td>
-       </tr>
-      </tbody>
-     </table>
-    </vaadin-grid>
     <vaadin-vertical-layout visible="false" size-auto :right>
      <vaadin-label plain-text _id="lUsuario">
        Crear usuario 
