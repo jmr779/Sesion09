@@ -18,8 +18,22 @@ public class BD_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void registrarse(String aEmail, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String aPass) {
-		throw new UnsupportedOperationException();
+	public void registrarse(String aEmail, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String aPass, String rol) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			bbdd.Registrado r = bbdd.RegistradoDAO.createRegistrado();
+			r.setNombre(aNombre);
+			r.setEmail(aEmail);
+			r.setActivo(true);
+			r.setPass(aPass);
+			r.setFechaCreacion(aFechaCreacion);
+			r.setFechaUltimoAcceso(aFechaUltimoAcceso);
+			r.setRol(rol);
+			bbdd.RegistradoDAO.save(r);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public void eliminarUsuario(int aID) {
@@ -39,13 +53,13 @@ public class BD_Registrado {
 	}
 	
 	public List cargarUsuarios() throws PersistentException {
-		List usu = null;
+		List us = null;
 		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
 		try {
-			usu = bbdd.RegistradoDAO.queryRegistrado(null, null);
+			us = bbdd.RegistradoDAO.queryRegistrado(null, null);
 		} catch (PersistentException e) {
 			t.rollback();
 		}
-		return usu;
+		return us;
 	}
 }

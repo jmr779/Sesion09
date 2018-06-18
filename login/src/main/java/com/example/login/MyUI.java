@@ -32,19 +32,9 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
     	navigator = new Navigator(this, this);
-    	//try {
-			//navigator.addView("", new Ingreso_aplicacion());
-			try {
-				navigator.addView("", new Pag_Administrador());
-			} catch (PersistentException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			navigator.addView("Registrado", new Pag_Registrado());
-		//} catch (PersistentException e) {
-			// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
+		navigator.addView("", new Ingreso_aplicacion());
+    	navigator.addView("Registrado",new Pag_Registrado());
+    	navigator.addView("Admin",new Pag_Administrador());
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

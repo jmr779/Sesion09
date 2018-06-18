@@ -18,23 +18,18 @@ public class Registro extends Registro_ventana{
 		botonRegistrarse.addClickListener(new ClickListener() {
 			
 			public void buttonClick(ClickEvent event) {
-				try {
 					registrarse();
-				} catch (PersistentException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
 			}
 		});
 
 	}
-	public void registrarse() throws PersistentException {
+	public void registrarse(){
 		String email = tEmail.getValue();
 		String pass = tPass.getValue();
 		String nombre = tUsername.getValue();
 		java.util.Date utilDate = new java.util.Date();
 		Date fechaU = null;
-		user.registrarse(email, pass, nombre, utilDate, fechaU);
+		String rol = "Registrado";
+		user.registrarse(email, pass, nombre, utilDate, fechaU, rol);
 	}
 }

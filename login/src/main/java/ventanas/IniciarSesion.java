@@ -30,21 +30,16 @@ public class IniciarSesion extends IniciarSesion_ventana {
 		boolean loginOk = false;
 		for (int i = 0; i <= usuarios.size() - 1; i++) {
 			if (user.equals(usuarios.get(i).getNombre()) && pass.equals(usuarios.get(i).getPass())) {
+				if(usuarios.get(i).getRol().equals("Registrado")) {
+					UI.getCurrent().getNavigator().navigateTo("Registrado");
+				}
+				if(usuarios.get(i).getRol().equals("Admin")) {
+					UI.getCurrent().getNavigator().navigateTo("Admin");
+				}
 				loginOk = true;
-			} else {
-				loginOk = false;
 			}
 		}
-		if (loginOk) {
-			UI.getCurrent().getNavigator().navigateTo("Registrado");
-		} else {
-
-			loginOk = false;
-
-		}
-		if (loginOk) {
-			Notification.show("asdasd");
-		} else {
+		if (!loginOk) {
 			errorLogin.setValue("El login no es correcto");
 			errorLogin.setVisible(true);
 		}

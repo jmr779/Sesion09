@@ -7,7 +7,6 @@ import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
 public class BD_Principal implements iUsuario {
-	public BD_Registrado _bD_Registrado;
 	public BD_Registrado registrado = new BD_Registrado();
 
 
@@ -23,20 +22,12 @@ public class BD_Principal implements iUsuario {
 		throw new UnsupportedOperationException();
 	}
 
-	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso) throws PersistentException{
-		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String rol) {
 		try {
-			bbdd.Registrado r = bbdd.RegistradoDAO.createRegistrado();
-			r.setNombre(aNombre);
-			r.setEmail(aEmail);
-			r.setActivo(true);
-			r.setPass(aPass);
-			r.setFechaCreacion(aFechaCreacion);
-			r.setFechaUltimoAcceso(aFechaUltimoAcceso);
-			bbdd.RegistradoDAO.save(r);
-			t.commit();
-		} catch (Exception e) {
-		t.rollback();
+			registrado.registrarse(aEmail, aNombre, aFechaCreacion, aFechaUltimoAcceso, aPass, rol);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -48,11 +39,10 @@ public class BD_Principal implements iUsuario {
 		throw new UnsupportedOperationException();
 	}
 	
-	@Override
 	public List cargarUsuarios() {
 		List user = null;
 		try {
-			user = registrado.cargarUsuarios();
+			user = this.registrado.cargarUsuarios();
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

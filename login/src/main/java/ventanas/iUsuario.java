@@ -13,7 +13,7 @@ public interface iUsuario{
 
 	public Usuario listarUsuarios();
 
-	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso) throws PersistentException;
+	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String rol);
 
 	public void modificarDatos(String aEmail, String aPass);
 
