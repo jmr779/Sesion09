@@ -49,4 +49,15 @@ public class BD_Principal implements iUsuario {
 		}
 		return user;
 	}
+	
+	public List cargarUsuarios2() {
+		List user = null;
+		try {
+			user = this.registrado.cargarUsuarios2();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return user;
+	}
 }

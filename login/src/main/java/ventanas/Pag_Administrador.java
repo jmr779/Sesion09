@@ -21,7 +21,7 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 	public ListarUsuarios _unnamed_ListarUsuarios_;
 	public ModificarDatosUserListado _unnamed_ModificarDatosUserListado_;
 	iUsuario us = new BD_Principal();
-	List<bbdd.Registrado> usuarios = us.cargarUsuarios();
+	List<bbdd.Registrado> usuarios = us.cargarUsuarios2();
 	
 	public Pag_Administrador()  {
 		/*Grid <bbdd.Registrado> grid = new Grid<>();

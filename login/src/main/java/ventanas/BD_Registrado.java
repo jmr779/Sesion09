@@ -62,4 +62,10 @@ public class BD_Registrado {
 		}
 		return us;
 	}
+	
+	public List cargarUsuarios2() throws PersistentException {
+		List us = null;
+			us = bbdd.RegistradoDAO.queryRegistrado(null, null);
+		return us;
+	}
 }

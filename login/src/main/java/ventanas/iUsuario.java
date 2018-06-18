@@ -20,4 +20,7 @@ public interface iUsuario{
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo);
 
 	public List cargarUsuarios();
+
+	public List cargarUsuarios2();
+
 }
