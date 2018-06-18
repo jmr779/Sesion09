@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.orm.PersistentException;
-import org.orm.PersistentTransaction;
 
 public class BD_Principal implements iUsuario {
 	public BD_Registrado registrado = new BD_Registrado();
@@ -32,7 +31,12 @@ public class BD_Principal implements iUsuario {
 	}
 
 	public void modificarDatos(String aEmail, String aPass) {
-		throw new UnsupportedOperationException();
+		try {
+			registrado.modificarDatos(aEmail, aPass);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {

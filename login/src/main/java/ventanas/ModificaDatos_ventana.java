@@ -23,16 +23,17 @@ import com.vaadin.ui.declarative.Design;
 @SuppressWarnings("serial")
 public class ModificaDatos_ventana extends VerticalLayout {
 	protected Label lUsuario;
-	protected TextField tApodo;
-	protected Label errorApodo;
+	protected TextField tUsername;
+	protected Label luser;
 	protected TextField tEmail;
-	protected Label errorEmail;
+	protected Label lemail;
 	protected HorizontalLayout hPass;
 	protected PasswordField tPass;
 	protected PasswordField tRepPass;
-	protected Label errorPass;
-	protected Button botonRegistrarse1;
-	protected Button botonRegistrarse;
+	protected Label lpass;
+	protected Button botonGuardar;
+	protected Button botonCancelar;
+	protected Label registroOk;
 
 	public ModificaDatos_ventana() {
 		Design.read(this);

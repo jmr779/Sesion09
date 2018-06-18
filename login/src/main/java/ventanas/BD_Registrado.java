@@ -14,8 +14,20 @@ public class BD_Registrado {
 	public BD_Principal _bD_Principal;
 	public Vector<Registrado> _registrados = new Vector<Registrado>();
 
-	public void modificarDatos(String aEmail, String aPass) {
-		throw new UnsupportedOperationException();
+	public void modificarDatos(String aEmail, String aPass) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			bbdd.Registrado r = bbdd.RegistradoDAO.getRegistradoByORMID(1);
+			
+			r.setEmail(aEmail);
+			r.setPass(aPass);
+			bbdd.RegistradoDAO.save(r);
+			t.commit();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			t.rollback();
+		}
+		
 	}
 
 	public void registrarse(String aEmail, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String aPass, String rol) throws PersistentException {
