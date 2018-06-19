@@ -56,6 +56,13 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 				crearUsuario();
 			}
 		});
+		bCerrarSesion.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Inicio");
+			}
+		});
 	}
 	public void crearUsuario() {
 		String nombre = tUsername.getValue();

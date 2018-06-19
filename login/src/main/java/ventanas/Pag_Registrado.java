@@ -7,11 +7,11 @@ import com.vaadin.ui.Window;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 
-public class Pag_Registrado extends Pag_Registrado_ventana implements View{
+public class Pag_Registrado extends Pag_Registrado_ventana implements View {
 	ModificaDatos modificarDatos = new ModificaDatos();
 	Window popup = new Window();
 	VerticalLayout subContent = new VerticalLayout();
-	
+
 	public Pag_Registrado() {
 		bmodificarDatos.addClickListener(new ClickListener() {
 
@@ -22,28 +22,34 @@ public class Pag_Registrado extends Pag_Registrado_ventana implements View{
 				popup.setWidth("720px");
 				popup.setModal(true);
 				UI.getCurrent().addWindow(popup);
-				
+
 			}
 		});
-		//Creamos la operacion de modificar datos
+		bcerrarSesion.addClickListener(new ClickListener() {
+
+			@Override
+			public void buttonClick(ClickEvent event) {
+				UI.getCurrent().getNavigator().navigateTo("Inicio");
+			}
+		});
+		// Creamos la operacion de modificar datos
 		modificarDatos.botonGuardar.addClickListener(new ClickListener() {
 
 			public void buttonClick(ClickEvent event) {
 				modificarDatos.modificarDatos();
 				popup.close();
-				
+
 			}
 		});
-		
-		
-		//Cerramos el pop-up
+
+		// Cerramos el pop-up
 		modificarDatos.botonCancelar.addClickListener(new ClickListener() {
 
 			public void buttonClick(ClickEvent event) {
 				popup.close();
-				
+
 			}
 		});
-		
+
 	}
 }
