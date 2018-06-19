@@ -31,6 +31,8 @@ public class Registro_ventana extends VerticalLayout {
 	protected PasswordField tPass;
 	protected PasswordField tRepPass;
 	protected Label lpass;
+	protected Label errorLogin;
+	protected Label errorLogin1;
 	protected Button botonRegistrarse;
 	protected Button botonCancelar;
 	protected Label registroOk;

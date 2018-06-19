@@ -29,7 +29,8 @@ public class IniciarSesion extends IniciarSesion_ventana {
 		String pass = password___.getValue();
 		boolean loginOk = false;
 		for (int i = 0; i <= usuarios.size() - 1; i++) {
-			if (user.equals(usuarios.get(i).getNombre()) && pass.equals(usuarios.get(i).getPass())) {
+			if (user.equals(usuarios.get(i).getNombre()) && pass.equals(usuarios.get(i).getPass()) &&
+					user.length() > 0 || pass.length() > 0) {
 				if(usuarios.get(i).getRol().equals("Registrado")) {
 					UI.getCurrent().getNavigator().navigateTo("Registrado");
 				}
