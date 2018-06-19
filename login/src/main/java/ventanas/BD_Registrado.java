@@ -52,8 +52,22 @@ public class BD_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void crearUsuario(int aID, String aEmail, String aPass, Date aFechaCreacion, Date aFechaUltimoAcceso) {
-		throw new UnsupportedOperationException();
+	public void crearUsuario(String aNombre, String aEmail, String aPass, boolean aActivo, Date aFechaCreacion, Date aFechaUltimoAcceso, String aRol) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			bbdd.Registrado r = bbdd.RegistradoDAO.createRegistrado();
+			r.setNombre(aNombre);
+			r.setEmail(aEmail);
+			r.setActivo(aActivo);
+			r.setPass(aPass);
+			r.setFechaCreacion(aFechaCreacion);
+			r.setFechaUltimoAcceso(aFechaUltimoAcceso);
+			r.setRol(aRol);
+			bbdd.RegistradoDAO.save(r);
+			t.commit();
+		} catch (Exception e) {
+			t.rollback();
+		}
 	}
 
 	public Usuario listarUsuarios() {

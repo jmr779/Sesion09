@@ -13,8 +13,13 @@ public class BD_Principal implements iUsuario {
 		throw new UnsupportedOperationException();
 	}
 
-	public void crearUsuario(int aID, String aEmail, String aPass, Date aFechaCreacion, Date aFechaUltimoAcceso) {
-		throw new UnsupportedOperationException();
+	public void crearUsuario(String aNombre, String aEmail, String aPass, boolean aActivo, Date aFechaCreacion, Date aFechaUltimoAcceso, String aRol) {
+		try {
+			registrado.crearUsuario(aNombre, aEmail, aPass, aActivo, aFechaCreacion, aFechaUltimoAcceso, aRol);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public Usuario listarUsuarios() {

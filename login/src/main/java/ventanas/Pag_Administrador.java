@@ -1,7 +1,10 @@
 package ventanas;
 
+import java.rmi.activation.ActivationGroup_Stub;
+import java.util.Date;
 import java.util.List;
 
+import org.hibernate.cfg.beanvalidation.ActivationContext;
 import org.orm.PersistentException;
 
 import com.vaadin.navigator.View;
@@ -43,18 +46,36 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				Window popup = new Window();
-				VerticalLayout subContent = new VerticalLayout();
-				popup.setContent(subContent);
-				subContent.addComponent(layoutCrearUsuario);
 				layoutCrearUsuario.setVisible(true);
-				popup.center();
-				// Closable elimina el boton de cerrar del popup
-				// popup.setClosable(false);
-				popup.setModal(true);
-				popup.setResizable(false);
-				UI.getCurrent().addWindow(popup);
 			}
 		});
+		botonCrear.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				crearUsuario();
+			}
+		});
+	}
+	public void crearUsuario() {
+		String nombre = tUsername.getValue();
+		String email = tEmail.getValue();
+		String pass = tPass.getValue();
+		String rol = "";
+		boolean activo = true;
+		java.util.Date utilDate = new java.util.Date();
+		Date fechaU = null;
+		if(rbotones.isSelected("Option1")) {
+			rol = "Admin";
+		}
+		if(rbotones.isSelected("Option2")) {
+			rol = "Registrado";
+		}
+		if(cActivo.getValue()) {
+			activo = true;
+		}else {
+			activo = false;
+		}
+		us.crearUsuario(nombre, email, pass, activo, utilDate, fechaU, rol);
 	}
 }

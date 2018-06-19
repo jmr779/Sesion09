@@ -32,7 +32,7 @@
        Crear usuarios 
      </vaadin-button>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout visible="false" size-auto _id="layoutCrearUsuario" :right>
+    <vaadin-vertical-layout visible="false" size-auto _id="layoutCrearUsuario">
      <vaadin-label plain-text _id="lUsuario">
        Crear usuario 
      </vaadin-label>
@@ -46,8 +46,8 @@
      </vaadin-horizontal-layout>
      <vaadin-label visible="false" style-name="small" plain-text _id="lpass"></vaadin-label>
      <vaadin-horizontal-layout width-full>
-      <vaadin-check-box caption="Activo" :middle :center></vaadin-check-box>
-      <vaadin-radio-button-group data-item-type="java.lang.String" :right>
+      <vaadin-check-box caption="Activo" _id="cActivo" :middle :center></vaadin-check-box>
+      <vaadin-radio-button-group data-item-type="java.lang.String" _id="rbotones" :right>
        <option item="Option1">admin</option>
        <option item="Option2">usuario</option>
       </vaadin-radio-button-group>

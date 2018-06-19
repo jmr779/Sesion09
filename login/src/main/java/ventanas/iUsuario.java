@@ -9,7 +9,7 @@ public interface iUsuario{
 
 	public void eliminarUsuario(int aID);
 
-	public void crearUsuario(int aID, String aEmail, String aPass, Date aFechaCreacion, Date aFechaUltimoAcceso);
+	public void crearUsuario(String aNombre, String aEmail, String aPass, boolean aActivo, Date aFechaCreacion, Date aFechaUltimoAcceso, String aRol);
 
 	public Usuario listarUsuarios();
 
