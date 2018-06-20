@@ -32,6 +32,8 @@ public class IniciarSesion extends IniciarSesion_ventana {
 			if (user.equals(usuarios.get(i).getNombre()) && 
 					pass.equals(usuarios.get(i).getPass())) {
 				if(usuarios.get(i).getRol().equals("Registrado")) {
+					getSession().setAttribute("user", user);
+					getSession().setAttribute("ID", usuarios.get(i).getID());
 					UI.getCurrent().getNavigator().navigateTo("Registrado");
 				}
 				if(usuarios.get(i).getRol().equals("Admin")) {
