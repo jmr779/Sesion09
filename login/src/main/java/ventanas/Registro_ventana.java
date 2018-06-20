@@ -35,7 +35,7 @@ public class Registro_ventana extends VerticalLayout {
 	protected Label errorLogin1;
 	protected Button botonRegistrarse;
 	protected Button botonCancelar;
-	protected Label registroOk;
+	protected Label registro;
 
 	public Registro_ventana() {
 		Design.read(this);
