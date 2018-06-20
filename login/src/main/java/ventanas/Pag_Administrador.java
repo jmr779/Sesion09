@@ -17,6 +17,7 @@ import com.vaadin.ui.Notification;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.renderers.ButtonRenderer;
 
 import bbdd.*;
 
@@ -27,25 +28,37 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 	List<bbdd.Registrado> usuarios = us.cargarUsuarios2();
 	
 	public Pag_Administrador()  {
-		/*Grid <bbdd.Registrado> grid = new Grid<>();
-
-		grid.setItems(lista);
-		
-		grid.addColumn(bbdd.Registrado::getNombre);
-		//grid.addColumn(new Button("Modificar"));
-		grid.addColumn(bbdd.Registrado::boton);
-		*/
+		Grid <bbdd.Registrado> grid = new Grid<>();
+		grid.setWidth("1000px");
+		grid.setItems(usuarios);	
+		grid.addColumn(bbdd.Registrado::getNombre).setCaption("Usuario");
+		grid.addColumn(bbdd.Registrado::getEmail).setCaption("Email");
+		grid.addColumn(bbdd.Registrado::getActivo).setCaption("Activo");
+		grid.addColumn(bbdd.Registrado::getFechaCreacion).setCaption("Fecha de registro");
+		grid.addColumn(bbdd.Registrado::getFechaUltimoAcceso).setCaption("Ultimo acceso");
+		grid.addColumn(bbdd.Registrado::getRol).setCaption("Rol");
+		grid.addColumn(usuarios -> "Modificar",
+			      new ButtonRenderer(clickEvent -> {
+			          Notification.show(grid.asSingleSelect().getValue().getNombre());
+			    }));
+		/*grid.addColumn(usuarios -> "Borrar",
+			      new ButtonRenderer(clickEvent -> {
+			          String a = grid.getId();
+			          Notification.show(a);
+			    }));*/
 		bListar.addClickListener(new ClickListener() {
 			
 			public void buttonClick(ClickEvent event) {
-				Notification.show(usuarios.get(1).getNombre());
-				
+				layoutCrearUsuario.setVisible(false);
+				layoutGrid.addComponent(grid);
+				grid.setVisible(true);
 			}
 		});
 		bCrear.addClickListener(new ClickListener() {
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
+				grid.setVisible(false);
 				layoutCrearUsuario.setVisible(true);
 			}
 		});
@@ -60,7 +73,7 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			
 			@Override
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Inicio");
+				UI.getCurrent().getNavigator().navigateTo("");
 			}
 		});
 	}

@@ -29,7 +29,7 @@ public class Pag_Registrado extends Pag_Registrado_ventana implements View {
 
 			@Override
 			public void buttonClick(ClickEvent event) {
-				UI.getCurrent().getNavigator().navigateTo("Inicio");
+				UI.getCurrent().getNavigator().navigateTo("");
 			}
 		});
 		// Creamos la operacion de modificar datos

@@ -33,7 +33,6 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
     	navigator = new Navigator(this, this);
 		navigator.addView("", new Ingreso_aplicacion());
-		navigator.addView("Inicio", new Ingreso_aplicacion());
     	navigator.addView("Registrado",new Pag_Registrado());
     	navigator.addView("Admin",new Pag_Administrador());
     }

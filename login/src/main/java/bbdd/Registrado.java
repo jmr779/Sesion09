@@ -130,4 +130,8 @@ public class Registrado implements Serializable {
 		return boton;
 		
 	}
+	public Button boton2() {
+		Button boton2 = new Button("Borrar");
+		return boton2;	
+	}
 }
