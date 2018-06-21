@@ -42,7 +42,11 @@ public class Pag_Administrador_ventana extends VerticalLayout {
 	protected RadioButtonGroup<java.lang.String> rbotones;
 	protected Button botonCrear;
 	protected Button botonCancelar;
+	protected Label errorLogin5;
+	protected Label errorLogin6;
+	protected Label errorLogin7;
 	protected Label registroOk;
+	protected VerticalLayout vModificar;
 	protected Label lUsuario1;
 	protected TextField tUsername1;
 	protected Label luser1;
@@ -52,8 +56,13 @@ public class Pag_Administrador_ventana extends VerticalLayout {
 	protected PasswordField tPass1;
 	protected PasswordField tRepPass1;
 	protected Label lpass1;
+	protected CheckBox cActivo1;
+	protected RadioButtonGroup<java.lang.String> rbotones1;
 	protected Button botonGuardar;
 	protected Button botonCancelar1;
+	protected Label errorLogin2;
+	protected Label errorLogin3;
+	protected Label errorLogin4;
 	protected Label registroOk1;
 	protected Button cancelar;
 	protected Button aceptar;

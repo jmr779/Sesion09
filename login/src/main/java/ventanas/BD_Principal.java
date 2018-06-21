@@ -44,8 +44,13 @@ public class BD_Principal implements iUsuario {
 		}
 	}
 
-	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
-		throw new UnsupportedOperationException();
+	public void modificarDatosUserListado(int aID, String aEmail, String aPass, String aNombre, boolean aActivo, String aRol) {
+		try {
+			registrado.modificarDatosUserListado(aID, aEmail, aPass, aNombre, aActivo, aRol);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public List cargarUsuarios() {

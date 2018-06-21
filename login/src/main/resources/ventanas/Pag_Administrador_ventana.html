@@ -60,11 +60,14 @@
         Cancelar 
       </vaadin-button>
      </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin5"></vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin6"></vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin7"></vaadin-label>
      <vaadin-label visible="false" style-name="success" plain-text _id="registroOk">
        Se ha registrado correctamente 
      </vaadin-label>
     </vaadin-vertical-layout>
-    <vaadin-vertical-layout visible="false" size-auto :right>
+    <vaadin-vertical-layout visible="false" size-auto _id="vModificar" :right>
      <vaadin-label plain-text _id="lUsuario1">
        Modificar usuario 
      </vaadin-label>
@@ -78,8 +81,8 @@
      </vaadin-horizontal-layout>
      <vaadin-label visible="false" style-name="small" plain-text _id="lpass1"></vaadin-label>
      <vaadin-horizontal-layout width-full>
-      <vaadin-check-box caption="Activo" :middle :center></vaadin-check-box>
-      <vaadin-radio-button-group data-item-type="java.lang.String" :right>
+      <vaadin-check-box caption="Activo" _id="cActivo1" :middle :center></vaadin-check-box>
+      <vaadin-radio-button-group data-item-type="java.lang.String" _id="rbotones1" :right>
        <option item="Option1">admin</option>
        <option item="Option2">usuario</option>
       </vaadin-radio-button-group>
@@ -92,6 +95,9 @@
         Cancelar 
       </vaadin-button>
      </vaadin-horizontal-layout>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin2"></vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin3"></vaadin-label>
+     <vaadin-label visible="false" style-name="failure" plain-text _id="errorLogin4"></vaadin-label>
      <vaadin-label visible="false" style-name="success" plain-text _id="registroOk1">
        Se ha guardado correctamente 
      </vaadin-label>

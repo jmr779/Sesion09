@@ -74,8 +74,21 @@ public class BD_Registrado {
 		throw new UnsupportedOperationException();
 	}
 
-	public void modificarDatosUserListado(String aEmail, String aPass, String aNombre, boolean aActivo) {
-		throw new UnsupportedOperationException();
+	public void modificarDatosUserListado(int aID, String aEmail, String aPass, String aNombre, boolean aActivo, String aRol) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			bbdd.Registrado r = bbdd.RegistradoDAO.getRegistradoByORMID(aID);
+			r.setNombre(aNombre);
+			r.setEmail(aEmail);
+			r.setPass(aPass);
+			r.setActivo(aActivo);
+			r.setRol(aRol);
+			bbdd.RegistradoDAO.save(r);
+			t.commit();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			t.rollback();
+		}
 	}
 	
 	public List cargarUsuarios() throws PersistentException {
