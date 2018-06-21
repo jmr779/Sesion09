@@ -64,6 +64,8 @@ public class Pag_Administrador_ventana extends VerticalLayout {
 	protected Label errorLogin3;
 	protected Label errorLogin4;
 	protected Label registroOk1;
+	protected VerticalLayout vEliminar;
+	protected Label lEliminar;
 	protected Button cancelar;
 	protected Button aceptar;
 

@@ -26,7 +26,7 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 	public ModificarDatosUserListado _unnamed_ModificarDatosUserListado_;
 	iUsuario us = new BD_Principal();
 	List<bbdd.Registrado> usuarios = us.cargarUsuarios2();
-	//Grid <bbdd.Registrado> grid = new Grid<>();
+
 	public Pag_Administrador()  {
 		Grid <bbdd.Registrado> grid = new Grid<>();
 		grid.setVisible(true);
@@ -52,11 +52,26 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			    	  boolean activo = grid.asSingleSelect().getValue().getActivo();
 			    	  verDatos(usu, email, pass, activo);
 			    }));
-		/*grid.addColumn(usuarios -> "Borrar",
+		grid.addColumn(usuarios -> "Borrar",
 			      new ButtonRenderer(clickEvent -> {
-			          String a = grid.getId();
-			          Notification.show(a);
-			    }));*/
+			    	  grid.setVisible(false);
+			    	  String us_selec = grid.asSingleSelect().getValue().getNombre();
+			    	  lEliminar.setValue("Estas seguro que deseas "
+			    			  + "eliminar el usuario "+us_selec+" ?");
+			    	  vEliminar.setVisible(true);
+			    }));
+		aceptar.addClickListener(new ClickListener() {		
+			public void buttonClick(ClickEvent event) {
+				int ID_usuario = grid.asSingleSelect().getValue().getORMID();
+		    	eliminarUsuario(ID_usuario);
+		    	vEliminar.setVisible(false);
+			}
+		});
+		cancelar.addClickListener(new ClickListener() {		
+			public void buttonClick(ClickEvent event) {
+		    	vEliminar.setVisible(false);
+			}
+		});
 		botonGuardar.addClickListener(new ClickListener() {
 			
 			public void buttonClick(ClickEvent event) {
@@ -69,6 +84,7 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			public void buttonClick(ClickEvent event) {
 				layoutCrearUsuario.setVisible(false);
 				vModificar.setVisible(false);
+				vEliminar.setVisible(false);
 				layoutGrid.addComponent(grid);
 				grid.setVisible(true);
 			}
@@ -213,5 +229,8 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			registroOk1.setVisible(true);
 			us.modificarDatosUserListado(id, email, pass, nombre, activo, rol);
 		}
+	}
+	public void eliminarUsuario(int ID_usuario) {
+		us.eliminarUsuario(ID_usuario);
 	}
 }

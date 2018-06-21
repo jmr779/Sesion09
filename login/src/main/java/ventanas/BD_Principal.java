@@ -10,7 +10,12 @@ public class BD_Principal implements iUsuario {
 
 
 	public void eliminarUsuario(int aID) {
-		throw new UnsupportedOperationException();
+		try {
+			registrado.eliminarUsuario(aID);
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void crearUsuario(String aNombre, String aEmail, String aPass, boolean aActivo, Date aFechaCreacion, Date aFechaUltimoAcceso, String aRol) {

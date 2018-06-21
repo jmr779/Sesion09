@@ -48,8 +48,16 @@ public class BD_Registrado {
 		}
 	}
 
-	public void eliminarUsuario(int aID) {
-		throw new UnsupportedOperationException();
+	public void eliminarUsuario(int aID) throws PersistentException {
+		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
+		try {
+			bbdd.Registrado r = bbdd.RegistradoDAO.getRegistradoByORMID(aID);
+			bbdd.RegistradoDAO.delete(r);
+			t.commit();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			t.rollback();
+		}
 	}
 
 	public void crearUsuario(String aNombre, String aEmail, String aPass, boolean aActivo, Date aFechaCreacion, Date aFechaUltimoAcceso, String aRol) throws PersistentException {
