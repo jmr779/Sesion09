@@ -6,23 +6,23 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
 import bbdd.Registrado;
+import bbdd.RegistradoDAO;
 
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.Notification;
 
 public class Pag_Registrado extends Pag_Registrado_ventana implements View {
+	iUsuario iu = new BD_Principal();
 	ModificaDatos modificarDatos = new ModificaDatos();
 	Window popup = new Window();
 	VerticalLayout subContent = new VerticalLayout();
 	Registrado reg = new Registrado();
-
-
+	
 	public Pag_Registrado() {
 		
 		inicializar();
 		//lnombreRegistrado.setValue((String) getSession().getAttribute("user"));
-		
 		bmodificarDatos.addClickListener(new ClickListener() {
 
 			public void buttonClick(ClickEvent event) {
@@ -67,9 +67,10 @@ public class Pag_Registrado extends Pag_Registrado_ventana implements View {
 		//String a = (String) getSession().getAttribute("user");
 		//String a = reg.getNombre();
 		/////////Siempre da 0 de la id porque es el unico que ha iniciado sesion
-		int a = reg.getORMID();
-		String b = Integer.toString(a);
-		lnombreRegistrado.setValue(b);
+		//int a = reg.getORMID();
+		//String b = Integer.toString(a);
+		//lnombreRegistrado.setValue(b);
 		//Notification.show(a);
+		lnombreRegistrado.setValue(Sesion.getUsuario());
 	}
 }
