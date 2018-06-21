@@ -41,6 +41,10 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 		grid.addColumn(usuarios -> "Modificar",
 			      new ButtonRenderer(clickEvent -> {
 			    	  grid.setVisible(false);
+			  		  registroOk1.setVisible(false);
+					  errorLogin2.setVisible(false);
+					  errorLogin3.setVisible(false);
+					  errorLogin4.setVisible(false);
 			    	  vModificar.setVisible(true);
 			    	  String usu = grid.asSingleSelect().getValue().getNombre();
 			    	  String email = grid.asSingleSelect().getValue().getEmail();
@@ -74,6 +78,14 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 			@Override
 			public void buttonClick(ClickEvent event) {
 				grid.setVisible(false);
+				errorLogin5.setVisible(false);
+				errorLogin6.setVisible(false);
+				errorLogin7.setVisible(false);
+				registroOk.setVisible(false);
+				tUsername.setValue("");
+				tEmail.setValue("");
+				tPass.setValue("");
+				tRepPass.setValue("");
 				layoutCrearUsuario.setVisible(true);
 			}
 		});
@@ -91,6 +103,21 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 				UI.getCurrent().getNavigator().navigateTo("");
 			}
 		});
+		botonCancelar1.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				vModificar.setVisible(false);
+				grid.setVisible(true);
+			}
+		});
+		botonCancelar.addClickListener(new ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+				layoutCrearUsuario.setVisible(false);
+			}
+		});
 	}
 	public void crearUsuario() {
 		String nombre = tUsername.getValue();
@@ -100,18 +127,42 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 		boolean activo = true;
 		java.util.Date utilDate = new java.util.Date();
 		Date fechaU = null;
+		boolean crearOk = true;
+		if (nombre.length() == 0 || pass.length() == 0 || tRepPass.getValue().length() == 0) {
+			errorLogin5.setValue("Necesarios campos Username y Contraseña para registrarse");
+			errorLogin5.setVisible(true);
+			crearOk = false;
+		} else if (!pass.equals(tRepPass.getValue())) {
+			errorLogin6.setValue("No coinciden las contraseñas");
+			errorLogin6.setVisible(true);
+			crearOk = false;
+		} else {
+			for (int i = 0; i <= usuarios.size() - 1; i++) {
+				if (nombre.equals(usuarios.get(i).getNombre())){
+					errorLogin6.setValue("El Username ya esta registrado");
+					errorLogin6.setVisible(true);
+					crearOk = false;
+				}
+			}
+		}
 		if(rbotones.isSelected("Option1")) {
 			rol = "Admin";
-		}
-		if(rbotones.isSelected("Option2")) {
+		}else if(rbotones.isSelected("Option2")) {
 			rol = "Registrado";
+		} else {
+			errorLogin7.setValue("Debe seleccionar un rol");
+			errorLogin7.setVisible(true);
+			crearOk = false;
 		}
 		if(cActivo.getValue()) {
 			activo = true;
 		}else {
 			activo = false;
 		}
-		us.crearUsuario(nombre, email, pass, activo, utilDate, fechaU, rol);
+		if(crearOk) {
+			registroOk.setVisible(true);
+			us.crearUsuario(nombre, email, pass, activo, utilDate, fechaU, rol);
+		}
 	}
 	public void verDatos(String usuario, String email, 
 			String pass, boolean activo) {
@@ -122,10 +173,10 @@ public class Pag_Administrador extends Pag_Administrador_ventana implements View
 		cActivo1.setValue(activo);
 	}
 	public void modificar(int ID_user) {
-		registroOk1.setVisible(false);
 		errorLogin2.setVisible(false);
 		errorLogin3.setVisible(false);
 		errorLogin4.setVisible(false);
+		registroOk.setVisible(false);
 		int id = ID_user;
 		String nombre = tUsername1.getValue();
 		String email = tEmail1.getValue();
