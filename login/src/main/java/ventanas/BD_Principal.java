@@ -39,10 +39,10 @@ public class BD_Principal implements iUsuario {
 			e.printStackTrace();
 		}
 	}
-
-	public void modificarDatos(String aEmail, String aPass) {
+	
+	public void modificarDatos(String aEmail, String aPass, int ID) {
 		try {
-			registrado.modificarDatos(aEmail, aPass);
+			registrado.modificarDatos(aEmail, aPass,ID);
 		} catch (PersistentException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

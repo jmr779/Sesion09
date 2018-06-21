@@ -14,10 +14,12 @@ public class BD_Registrado {
 	public BD_Principal _bD_Principal;
 	public Vector<Registrado> _registrados = new Vector<Registrado>();
 
-	public void modificarDatos(String aEmail, String aPass) throws PersistentException {
+	public void modificarDatos(String aEmail, String aPass, int ID) throws PersistentException {
 		PersistentTransaction t = bbdd.ProyectoHMISPersistentManager.instance().getSession().beginTransaction();
 		try {
-			bbdd.Registrado r = bbdd.RegistradoDAO.getRegistradoByORMID(1);
+			
+			
+			bbdd.Registrado r = bbdd.RegistradoDAO.getRegistradoByORMID(ID);
 			
 			r.setEmail(aEmail);
 			r.setPass(aPass);

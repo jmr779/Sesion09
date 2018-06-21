@@ -15,7 +15,7 @@ public interface iUsuario{
 
 	public void registrarse(String aEmail, String aPass, String aNombre, Date aFechaCreacion, Date aFechaUltimoAcceso, String rol);
 
-	public void modificarDatos(String aEmail, String aPass);
+	public void modificarDatos(String aEmail, String aPass, int iD);
 
 	public void modificarDatosUserListado(int aID, String aEmail, String aPass, String aNombre, boolean aActivo, String aRol);
 

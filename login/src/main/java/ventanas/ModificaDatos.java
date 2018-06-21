@@ -8,15 +8,17 @@ public class ModificaDatos extends ModificaDatos_ventana{
 	public Pag_Registrado _unnamed_Pag_Registrado_;
 
 	public ModificaDatos() {
+		
 		tUsername.setVisible(false);
 		modificarDatos();
 	}
 	
 	public void modificarDatos() {
+		int ID = IniciarSesion.variableGlobal;
 		
 		String contraseña = tPass.getValue();
 		String email = tEmail.getValue();
-		
-		user.modificarDatos(email, contraseña);
+		//int ID = Sesion.getIdUsuario();
+		user.modificarDatos(email, contraseña,ID);
 	}
 }

@@ -2,6 +2,7 @@ package ventanas;
 
 import java.util.List;
 
+import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import bbdd.*;
@@ -12,6 +13,7 @@ public class IniciarSesion extends IniciarSesion_ventana {
 	public Ingreso_aplicacion _unnamed_Ingreso_aplicacion_;
 	iUsuario us = new BD_Principal();
 	List<bbdd.Registrado> usuarios = us.cargarUsuarios();
+	public static int variableGlobal;
 
 	public IniciarSesion() {
 		login.addClickListener(new Button.ClickListener() {
@@ -32,11 +34,17 @@ public class IniciarSesion extends IniciarSesion_ventana {
 			if (user.equals(usuarios.get(i).getNombre()) && 
 					pass.equals(usuarios.get(i).getPass())) {
 				if(usuarios.get(i).getRol().equals("Registrado")) {
-					//getSession().setAttribute("user", user);
-					//getSession().setAttribute("ID", usuarios.get(i).getID());
-					Sesion.setIdUsuario(usuarios.get(i).getID());
-					Sesion.setUsuario(usuarios.get(i).getNombre());
+				
+					bbdd.Registrado r = usuarios.get(i);
+				variableGlobal = usuarios.get(i).getID();
+				
+				//Sesion.setIdUsuario(r.getORMID());
+				//Sesion.setUsuario(r.getNombre());
+				
+					//Sesion.setIdUsuario(usuarios.get(i).getID());
+					//Sesion.setUsuario(usuarios.get(i).getNombre());
 					UI.getCurrent().getNavigator().navigateTo("Registrado");
+					
 				}
 				if(usuarios.get(i).getRol().equals("Admin")) {
 					UI.getCurrent().getNavigator().navigateTo("Admin");
@@ -49,4 +57,5 @@ public class IniciarSesion extends IniciarSesion_ventana {
 			errorLogin.setVisible(true);
 		}
 	}
+
 }

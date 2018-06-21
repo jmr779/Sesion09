@@ -1,8 +1,8 @@
 package ventanas;
 
 public class Sesion {
-	private static int idUsuario=-1;
-	private static String usuario="";
+	public static int idUsuario=-1;
+	public static String usuario="";
 
 	public static int getIdUsuario() {
 		return idUsuario;
